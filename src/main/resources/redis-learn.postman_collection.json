@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "85e6784b-0df6-47c0-83fe-98f52268de09",
+		"name": "redis-learn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32529488"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user/code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "18403225546",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/user/code",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{110}}:8083/user/logout",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{110}}:8083/user/1",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "18403225546",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/user/me",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/sign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "18403225546",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/user/sign",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"sign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/sign/count",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "18403225546",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/user/sign/count",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"sign",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/info/id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "phone",
+									"value": "18403225546",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/user/info/2",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"info",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = JSON.parse(responseBody);\r",
+									"console.log(res)\r",
+									"if (res.data){\r",
+									"    postman.setEnvironmentVariable(\"authorization\",res.data);\r",
+									"}else{\r",
+									"    console.log(\"no token\")\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\":\"18403225546\",\r\n    \"code\": 410185\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/user/login",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shop",
+			"item": [
+				{
+					"name": "shop",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\":\"18403225546\",\r\n    \"code\": 571381\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/shop/15",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"shop",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shop-update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"name\": \"Mybatis-learn\",\r\n        \"typeId\": 1,\r\n        \"images\": \"mybatis\",\r\n        \"area\": \"aift\",\r\n        \"address\": \"aift\",\r\n        \"x\": 120.146659,\r\n        \"y\": 30.312742,\r\n        \"avgPrice\": 290,\r\n        \"sold\": 13519,\r\n        \"comments\": 9529,\r\n        \"score\": 49,\r\n        \"openHours\": \"11:00-22:00\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{110}}:8083/shop",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"shop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shop-type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{110}}:8083/shop-type/list",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"shop-type",
+								"list"
+							],
+							"query": [
+								{
+									"key": "current",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shop-of-type Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{110}}:8083/shop/of/type?typeId=2",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"shop",
+								"of",
+								"type"
+							],
+							"query": [
+								{
+									"key": "typeId",
+									"value": "2"
+								},
+								{
+									"key": "current",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "shop-of-name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://{{110}}:8083/shop/of/name?name=Mybatis-learn",
+							"protocol": "http",
+							"host": [
+								"{{110}}"
+							],
+							"port": "8083",
+							"path": [
+								"shop",
+								"of",
+								"name"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Mybatis-learn"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
